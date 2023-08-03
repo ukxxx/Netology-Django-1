@@ -42,11 +42,11 @@
         </table>
 
         {% if page.has_previous %}
-            <a class="button button-primary" href="?page={{ page.previous_page_number }}">⟵</a>
+            <a class="button button-primary" href="?page={{ page.previous_page_number }}&page_size={{ page_size }}">⟵</a>
         {% endif %}
         <a class="button disabled" href="">{{ page.number }}</a>
         {% if page.has_next %}
-            <a class="button button-primary" href="?page={{ page.next_page_number }}">⟶</a>
+            <a class="button button-primary" href="?page={{ page.next_page_number }}&page_size={{ page_size }}">⟶</a>
         {% endif %}
     </div>
 </div>
