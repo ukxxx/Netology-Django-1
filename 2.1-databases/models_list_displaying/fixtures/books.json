@@ -4,8 +4,8 @@
     "pk": 1,
     "fields": {
       "name": "Война и мир",
-      "author": "Ф.Д. Достоевский",
-      "pub_date": "2018-02-27"
+      "author": "Лев Толстой",
+      "pub_date": "1869-01-01"
     }
   },
   {
@@ -13,8 +13,134 @@
     "pk": 2,
     "fields": {
       "name": "1984",
-      "author": "Джордж Оруэл",
-      "pub_date": "2016-12-06"
+      "author": "Джордж Оруэлл",
+      "pub_date": "1949-06-08"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "name": "Преступление и наказание",
+      "author": "Ф.М. Достоевский",
+      "pub_date": "1866-01-01"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "name": "Гарри Поттер и философский камень",
+      "author": "Джоан Роулинг",
+      "pub_date": "1997-06-26"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "name": "Убийство в Восточном экспрессе",
+      "author": "Агата Кристи",
+      "pub_date": "1934-01-01"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+      "name": "Тень ветра",
+      "author": "Карлос Руис Сафон",
+      "pub_date": "2001-01-01"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "name": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "pub_date": "1925-04-10"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "name": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "pub_date": "1960-07-11"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "name": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "pub_date": "1813-01-28"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+      "name": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "pub_date": "1951-07-16"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 7,
+    "fields": {
+      "name": "One Hundred Years of Solitude",
+      "author": "Gabriel Garcia Marquez",
+      "pub_date": "1967-05-30"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 8,
+    "fields": {
+      "name": "Harry Potter and the Chamber of Secrets",
+      "author": "J.K. Rowling",
+      "pub_date": "1998-07-02"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 9,
+    "fields": {
+      "name": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "pub_date": "1937-09-21"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 10,
+    "fields": {
+      "name": "The Alchemist",
+      "author": "Paulo Coelho",
+      "pub_date": "1988-01-01"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 11,
+    "fields": {
+      "name": "The Lord of the Rings: The Fellowship of the Ring",
+      "author": "J.R.R. Tolkien",
+      "pub_date": "1954-07-29"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 12,
+    "fields": {
+      "name": "The Da Vinci Code",
+      "author": "Dan Brown",
+      "pub_date": "2003-03-18"
     }
   }
 ]
