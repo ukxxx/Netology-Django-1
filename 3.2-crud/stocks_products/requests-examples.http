@@ -49,6 +49,7 @@ Content-Type: application/json
   "address": "ленина, 1",
   "positions": [
     {
+      "stock": 1,
       "product": 2,
       "quantity": 250,
       "price": 120.50
