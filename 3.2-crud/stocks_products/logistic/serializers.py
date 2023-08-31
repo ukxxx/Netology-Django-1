@@ -45,7 +45,7 @@ class StockSerializer(serializers.ModelSerializer):
         positions = validated_data.pop('positions')
 
         # создаем склад по его параметрам
-        stock = super().create(stock= positions[0][stock], **validated_data)
+        stock = super().create(validated_data)
 
         # здесь вам надо заполнить связанные таблицы
         # в нашем случае: таблицу StockProduct
