@@ -7,8 +7,8 @@ POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "чето",
-  "description": "описание"
+  "title": "Помидоры",
+  "description": "Тоже что томаты"
 }
 
 ###
@@ -20,17 +20,17 @@ Content-Type: application/json
 ###
 
 # обновление продукта
-PATCH {{baseUrl}}/products/4/
+PATCH {{baseUrl}}/products/8/
 Content-Type: application/json
 
 {
-  "description": "Самые сочные и ароматные помидорки"
+  "description": "Самые"
 }
 
 ###
 
 # удаление продукта
-DELETE {{baseUrl}}/products/1/
+DELETE {{baseUrl}}/products/8/
 Content-Type: application/json
 
 ###
@@ -46,10 +46,9 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "ленина, 1",
+  "address": "ANAL STR",
   "positions": [
     {
-      "stock": 1,
       "product": 2,
       "quantity": 250,
       "price": 120.50
@@ -65,19 +64,19 @@ Content-Type: application/json
 ###
 
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/1/
+PATCH {{baseUrl}}/stocks/5/
 Content-Type: application/json
 
 {
   "positions": [
     {
       "product": 2,
-      "quantity": 100,
+      "quantity": 99999,
       "price": 130.80
     },
     {
       "product": 3,
-      "quantity": 243,
+      "quantity": 11111,
       "price": 145
     }
   ]

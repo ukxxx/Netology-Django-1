@@ -7,30 +7,25 @@ class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ['id', 'title', 'description']
+    
+    def create(self, validated_data):
+        return super().create(validated_data)
 
 
 class ProductPositionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = StockProduct
-        fields = '__all__'
-    
-    # def create(self, data):
-    #     print('Криэйт вызван!!!')
-    #     address = self.context['request'].get('address')
-    #     print(address)
+        fields = ['product', 'quantity', 'price']
 
-    #     try:
-    #         stock = Stock.objects.get(address=address)
-    #         print
-    #     except Stock.DoesNotExist:
-    #         raise serializers.ValidationError('Такой склад не найден')
-        
-    #     data['stock'] = stock
-    #     print(data)
-        
-    #     return super().create(data)
+    def create(self, validated_data):
+        return super().create(validated_data)
+
+    def validate(self, data):
+        if data['quantity'] <= 0:
+            raise ValidationError('Количество должно быть больше нуля')
+        return data
 
 
 class StockSerializer(serializers.ModelSerializer):
@@ -38,50 +33,35 @@ class StockSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Stock
-        fields = '__all__'
+        fields = ['id', 'address', 'positions']
 
     def create(self, validated_data):
-        # достаем связанные данные для других таблиц
         positions = validated_data.pop('positions')
-
-        # создаем склад по его параметрам
         stock = super().create(validated_data)
 
-        # здесь вам надо заполнить связанные таблицы
-        # в нашем случае: таблицу StockProduct
-        # с помощью списка positions
         for position in positions:
-            position['stock'] = stock.id
-            StockProduct.objects.create(**position)
+            StockProduct.objects.create(stock=stock, **position)
         return stock
     
-    def validate(self, data):
-        raise ValidationError('Такой склада уже существует')
+    def validate_positions(self, data):
+        if len(data) == 0:
+            raise ValidationError('Склад должен содержать хотя бы одну единицу товара')
         return data
 
     def update(self, instance, validated_data):
-        # достаем связанные данные для других таблиц
         positions = validated_data.pop('positions')
-
-        # обновляем склад по его параметрам
         stock = super().update(instance, validated_data)
 
-        # здесь вам надо обновить связанные таблицы
-        # в нашем случае: таблицу StockProduct
-        # с помощью списка positions
+
         for position in positions:
             product = position.get('product')
             quantity = position.get('quantity')
             price = position.get('price')
 
-            stock_product, created = StockProduct.objects.get_or_create(
+            stock_product, created = StockProduct.objects.update_or_create(
                 stock=stock,
                 product=product,
                 defaults={'quantity': quantity, 'price': price}
             )
-            if not created:
-                stock_product.quantity=quantity
-                stock_product.price=price
-                stock_product.save()
 
         return stock
