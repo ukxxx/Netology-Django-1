@@ -21,7 +21,7 @@ Authorization: Token 68f41c5354535de3624465f622093a01724bfecc
 ###
 
 # попытка поменять объявление
-PATCH {{baseUrl}}/advertisements/24/
+PATCH {{baseUrl}}/advertisements/45/
 Content-Type: application/json
 Authorization: Token 68f41c5354535de3624465f622093a01724bfecc
 
@@ -38,12 +38,15 @@ Content-Type: application/json
 ###
 
 # фильтрация по дате
-GET {{baseUrl}}/advertisements/?created_at_before=2020-10-01
+GET {{baseUrl}}/advertisements/?created_at_before=2023-9-15
 Content-Type: application/json
 
 ###
 
 # удаление
-DELETE {{baseUrl}}/advertisements/4/
+DELETE {{baseUrl}}/advertisements/13/
 Content-Type: application/json
-Authorization: Token 019eba7f84384735ea18b9f70f391d5535e729a7
+Authorization: Token 68f41c5354535de3624465f622093a01724bfecc
+
+###
+

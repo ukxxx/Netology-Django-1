@@ -39,7 +39,7 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         status = data.get("status")
         creator = self.context["request"].user
 
-        if status == AdvertisementStatusChoices.OPEN:
+        if status == AdvertisementStatusChoices.OPEN or self.context['request'].method == 'POST':
             open_advertisements_counter = Advertisement.objects.filter(creator = creator, status = AdvertisementStatusChoices.OPEN).count()
             print(open_advertisements_counter)
             if open_advertisements_counter >= 10:
