@@ -1,18 +1,13 @@
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
-from django_filters.rest_framework import DjangoFilterBackend, DateFromToRangeFilter,FilterSet
+from django_filters.rest_framework import DjangoFilterBackend
 
 from advertisements.models import Advertisement
 from advertisements.serializers import AdvertisementSerializer
 from advertisements.permissions import UserPermission
+from advertisements.filters import DateRangeFilter
 
-
-class DateRangeFilter(FilterSet):
-    created_at = DateFromToRangeFilter()
-    class Meta:
-        model = Advertisement
-        fields = ['created_at']
 
 class AdvertisementViewSet(ModelViewSet):
     queryset = Advertisement.objects.all()
