@@ -47,7 +47,7 @@ jobs:
               run: flake8 ./3.2-crud/ --exclude migrations
               
             - name: Testing
-              run: python ./3.2-crud/manage.py test
+              run: python 3.2-crud/manage.py test
             
             # - name: Deploy
             #   uses:
