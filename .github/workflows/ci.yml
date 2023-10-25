@@ -41,13 +41,13 @@ jobs:
               run: cd 3.2-crud/stocks_products/
 
             - name: Install dependencies
-              run: pip install -r requirements.txt
+              run: pip install -r 3.2-crud/stocks_products/requirements.txt
 
             - name: Linting
               run: flake8 --exclude venv
               
             - name: Testing
-              run: python .\3.2-crud\stocks_products\manage.py test
+              run: python 3.2-crud/stocks_products/manage.py test
             
             # - name: Deploy
             #   uses:
