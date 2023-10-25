@@ -48,6 +48,11 @@ jobs:
               
             - name: Testing
               run: python 3.2-crud/stocks_products/manage.py test
+              env:
+                DB_NAME: ${{ env.DB_NAME }}
+                DB_USER: ${{ env.DB_USER }}
+                DB_PASSWORD: ${{ env.DB_PASSWORD }}
+                ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
             
             # - name: Deploy
             #   uses:
