@@ -14,7 +14,7 @@ class AdvertisementViewSet(ModelViewSet):
     serializer_class = AdvertisementSerializer
     permission_classes = [IsAuthenticated, UserPermission]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filter_fields = ['status']
+    filter_fields = ["status"]
     filterset_class = DateRangeFilter
 
     def get_permissions(self):

@@ -3,8 +3,10 @@ from django_filters.rest_framework import DateFromToRangeFilter
 
 from advertisements.models import Advertisement
 
+
 class DateRangeFilter(filters.FilterSet):
     created_at = DateFromToRangeFilter()
+
     class Meta:
         model = Advertisement
-        fields = ['created_at', 'status']
+        fields = ["created_at", "status"]

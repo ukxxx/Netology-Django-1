@@ -5,23 +5,31 @@ from advertisements.models import Advertisement, AdvertisementStatusChoices
 
 
 class UserSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name',
-                  'last_name',)
+        fields = (
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+        )
 
 
 class AdvertisementSerializer(serializers.ModelSerializer):
-
     creator = UserSerializer(
         read_only=True,
     )
 
     class Meta:
         model = Advertisement
-        fields = ('id', 'title', 'description', 'creator',
-                  'status', 'created_at', )
+        fields = (
+            "id",
+            "title",
+            "description",
+            "creator",
+            "status",
+            "created_at",
+        )
 
     def create(self, validated_data):
         """Метод для создания"""
@@ -39,9 +47,16 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         status = data.get("status")
         creator = self.context["request"].user
 
-        if status == AdvertisementStatusChoices.OPEN or self.context['request'].method == 'POST':
-            open_advertisements_counter = Advertisement.objects.filter(creator = creator, status = AdvertisementStatusChoices.OPEN).count()
+        if (
+            status == AdvertisementStatusChoices.OPEN
+            or self.context["request"].method == "POST"
+        ):
+            open_advertisements_counter = Advertisement.objects.filter(
+                creator=creator, status=AdvertisementStatusChoices.OPEN
+            ).count()
             print(open_advertisements_counter)
             if open_advertisements_counter >= 10:
-                raise serializers.ValidationError("You can't create more than 10 open advertisements")
+                raise serializers.ValidationError(
+                    "You can't create more than 10 open advertisements"
+                )
         return data

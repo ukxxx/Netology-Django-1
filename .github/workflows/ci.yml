@@ -44,7 +44,7 @@ jobs:
               run: pip install -r 3.2-crud/stocks_products/requirements.txt
 
             - name: Linting
-              run: flake8 --exclude venv
+              run: flake8 .\3.2-crud\ --exclude migrations
               
             - name: Testing
               run: python 3.2-crud/stocks_products/manage.py test

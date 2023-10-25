@@ -19,6 +19,6 @@ from django.contrib import admin
 from calculator.views import recipes
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('<recipe>/', recipes),
+    path("admin/", admin.site.urls),
+    path("<recipe>/", recipes),
 ]
