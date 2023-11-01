@@ -138,8 +138,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Paginations
-
+pagi_style = "rest_framework.pagination.LimitOffsetPagination"
 REST_FRAMEWORK = {
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "DEFAULT_PAGINATION_CLASS": pagi_style,
     "PAGE_SIZE": 3,
 }
