@@ -62,4 +62,3 @@ jobs:
                 password: ${{ secrets.SSH_PASSWORD }}
                 script: expect /home/uk/Netology-Django-1/deploy.exp
 
-
