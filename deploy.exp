@@ -1,4 +1,5 @@
 #!/bin/bash/expect
 spawn /home/uk/Netology-Django-1/deploy.sh
 expect "password"
-send  -- "qgdfZi8M"
+send  -- "$env(PASSWORD)\r"
+expect eof
