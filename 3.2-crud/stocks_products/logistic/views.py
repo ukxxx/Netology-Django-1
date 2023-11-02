@@ -23,6 +23,7 @@ class StockViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ["products"]
 
+
 @api_view(['GET'])
 def sample_view(request):
-    return Response({'message': 'Hello, world!'})   
+    return Response({'message': 'Hello, world!'})
