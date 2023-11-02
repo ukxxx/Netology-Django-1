@@ -4,6 +4,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from logistic.models import Product, Stock
 from logistic.serializers import ProductSerializer, StockSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 
 class ProductViewSet(ModelViewSet):
@@ -20,3 +22,7 @@ class StockViewSet(ModelViewSet):
 
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ["products"]
+
+@api_view(['GET'])
+def sample_view(request):
+    return Response({'message': 'Hello, world!'})   
